@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         int[] array = {4, 1, 10, -3, 12};
 
-        int[] newArray = {4, 1, 10, 19, 12};
+        int[] newArray = {4, 1,10, 19, 12};
 
         int [] labels={0,0,0,1,1};
         int [] values={9,8,8,7,6};
@@ -36,9 +36,15 @@ public class MainActivity extends AppCompatActivity {
         int use_limit=2;
 
         LargestValueFromLabels largestValueFromLabels=new LargestValueFromLabels();
-        int answer=largestValueFromLabels.largestValuesFromLabels(values, labels,num_wanted,use_limit);
+        //int answer=largestValueFromLabels.largestValuesFromLabels(values, labels,num_wanted,use_limit);
+        GetFirstDuplicate getFirstDuplicate=new GetFirstDuplicate();
+        //int answer=getFirstDuplicate.optimisedSolution(values);
 
-        textView.setText(String.valueOf(answer));
+        GetLongestPalindromicSubstring longestPalindromicSubstring=new GetLongestPalindromicSubstring();
+        String answer=longestPalindromicSubstring.longestPalindrome("12452678");
+
+        //textView.setText(String.valueOf(answer));
+        textView.setText(answer);
 
         Button sort = findViewById(R.id.btn_sort);
         sort.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 //insertionSort(array);
                 //bubbleSort(array);
                 //quickSort(newArray, 0, newArray.length - 1);
-                mergeSort(newArray, 0, newArray.length-1);
+                //mergeSort(newArray, 0, newArray.length-1);
 
             }
         });

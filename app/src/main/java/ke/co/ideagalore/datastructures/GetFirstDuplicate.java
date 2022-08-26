@@ -22,4 +22,17 @@ public class GetFirstDuplicate {
 
         //Note that this solution gives us a time complexity of O(n) which is pretty fast but its very efficient memory wise;
     }
+
+    int optimisedSolution(int[] array) {
+        int length = array.length;
+        for (int i = 0; i < length; i++) {
+
+            if (array[Math.abs(array[i]) - 1] < 0) {
+                return Math.abs(array[i]);
+            } else {
+                array[Math.abs(array[i]) - 1] = -array[Math.abs(array[i]) - 1];
+            }
+        }
+        return -1;
+    }
 }

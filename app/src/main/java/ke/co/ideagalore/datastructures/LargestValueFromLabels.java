@@ -42,7 +42,6 @@ public class LargestValueFromLabels {
     public class Item {
 
         int value, label;
-
         public Item(int value, int label) {
             this.value = value;
             this.label = label;
