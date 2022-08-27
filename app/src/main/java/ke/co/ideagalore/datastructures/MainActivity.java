@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,28 +24,37 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textView=findViewById(R.id.tv_array);
+        textView = findViewById(R.id.tv_array);
 
         int[] array = {4, 1, 10, -3, 12};
 
-        int[] newArray = {4, 1,10, 19, 12};
+        int[] newArray = {4, 1, 10, 19, 12};
 
-        int [] labels={0,0,0,1,1};
-        int [] values={9,8,8,7,6};
+        int[] labels = {0, 0, 0, 1, 1};
+        int[] values = {9, 8, 8, 7, 6};
 
-        int num_wanted=3;
-        int use_limit=2;
+        int[] sortedNumbers = {5, 7, 7, 8,8,10};
 
-        LargestValueFromLabels largestValueFromLabels=new LargestValueFromLabels();
+        int num_wanted = 3;
+        int use_limit = 2;
+
+        LargestValueFromLabels largestValueFromLabels = new LargestValueFromLabels();
         //int answer=largestValueFromLabels.largestValuesFromLabels(values, labels,num_wanted,use_limit);
-        GetFirstDuplicate getFirstDuplicate=new GetFirstDuplicate();
+        GetFirstDuplicate getFirstDuplicate = new GetFirstDuplicate();
         //int answer=getFirstDuplicate.optimisedSolution(values);
 
-        GetLongestPalindromicSubstring longestPalindromicSubstring=new GetLongestPalindromicSubstring();
-        String answer=longestPalindromicSubstring.longestPalindrome("12452678");
+        GetLongestPalindromicSubstring longestPalindromicSubstring = new GetLongestPalindromicSubstring();
+        // String answer = longestPalindromicSubstring.longestPalindrome("12452678");
+
+        FindFirstandLastIndex findFirstandLastIndex = new FindFirstandLastIndex();
+        int[] one=findFirstandLastIndex.searchRange(sortedNumbers,8);
+
+        for (int k:one){
+            Toast.makeText(this, ""+k, Toast.LENGTH_SHORT).show();
+        }
 
         //textView.setText(String.valueOf(answer));
-        textView.setText(answer);
+       // textView.setText(stingo);
 
         Button sort = findViewById(R.id.btn_sort);
         sort.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button clear=findViewById(R.id.btn_clear);
+        Button clear = findViewById(R.id.btn_clear);
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         if (left < right) {
             int m = (left + right) / 2;
             sort(array, left, m);
-            sort(array, m+1, right);
+            sort(array, m + 1, right);
             merge(array, left, m, right);
 
             setView(array);
